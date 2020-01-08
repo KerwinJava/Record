@@ -23,6 +23,9 @@ pipeline
                 pipeline.addLast(new IdleStateHandler(20, 0, 0, TimeUnit.SECONDS)); 
                 pipeline.addLast(new LEDHeartHandler(group, host));
 ```
+>  问题
+
 发现在连接建立成功后，不管有没有消息都会在20秒后断开连接<br/>
-**解决办法**<br/>
+>  解决办法
+
 **最好是将IdleStateHandler放在入站的开头，并且重写userEventTriggered这个方法的handler也就是这里的LEDHeartHandler必须在其后面。否则无法触发这个事件。**
