@@ -29,3 +29,7 @@ pipeline
 >  解决办法
 
 **最好是将IdleStateHandler放在入站的开头，并且重写userEventTriggered这个方法的handler也就是这里的LEDHeartHandler必须在其后面。否则无法触发这个事件。**
+
+* @Chain注解
+
+使用反射获取实体类字段时，获取不到set方法，原因是使用@Chain注解将setter方法返回值类型修改为实体类类型，方便链式操作
