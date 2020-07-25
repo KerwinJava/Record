@@ -10,4 +10,5 @@ package com.kerwin.blogs;
  * @see com.kerwin.blogs <br>
  */
 public class BlogsApplication {
+    String a = "测试提交";
 }
