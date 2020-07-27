@@ -45,3 +45,24 @@
    4. mysql根据优化器生成的执行计划，调用存储引擎的API来执行查询
    5. 将结果返回给客户端
 ```
+> MySQL客户端\服务端通信协议
+ >
+ * 查询状态
+ ```aidl
+使用show full processlist命令查看一个mysql链接状态
+1. sleep 
+   线程正在等待客户端发送新的请求
+2.Query
+   线程正在执行查询或者正在将结果发送给客户端
+3.Locked
+    该线程正在等待表锁（MySQL服务器层）
+4.Analyzing and statistics
+    正在收集存储引擎的统计信息，并生成查询的执行计划
+5.Copying to tmp disk [on disk]
+    正在执行查询 并且将结果复制到一个临时表中,一般要么是在做group by操作，要么是文件排序操作，或者是UNION操作。
+如果后面有on disk标记 表明正在将一个内存临时表放到磁盘上
+6.Sorting result
+    线程正在对结果集进行排序
+7.Sending Data
+    线程在多个状态之间传送数据或者正在生成结果集或者正在向客户端返回数据
+```
