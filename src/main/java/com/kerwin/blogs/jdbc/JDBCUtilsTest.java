@@ -1,10 +1,12 @@
 package com.kerwin.blogs.jdbc;
 
-import static org.junit.jupiter.api.Assertions.*;
+import com.kerwin.blogs.BlogsApplicationTest;
+import org.junit.Test;
 
-class JDBCUtilsTest {
+public class JDBCUtilsTest extends BlogsApplicationTest {
 
     @Test
-    void getConnection() {
+    public void getConnection() {
+        JDBCUtils.getInstance().getConnection();
     }
 }
