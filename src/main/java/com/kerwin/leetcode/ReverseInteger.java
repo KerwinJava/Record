@@ -16,6 +16,5 @@ public class ReverseInteger {
         System.out.println(new ReverseInteger().reverse(1534236469));
         System.out.println(new ReverseInteger().reverse(1534236469));
         System.out.println(Integer.MAX_VALUE == Math.pow(2, 31) - 1);
-        System.out.println(Integer.MAX_VALUE > 9646324351);
     }
 }
